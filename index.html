@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cartograms with d3 &amp; TopoJSON</title>
+    <meta charset="utf-8">
+    <meta property="og:image" content="placeholder.png">
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+    <script src="d3-cartogram.js"></script>
+    <script src="d3-colorbar.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <h1>Changes in Durham Housing Economics and Demographis</h1>
+      <form>
+        <p>
+          <label><select id="field"></select></label>
+          <span id="status"></span>
+        </p>
+      </form>
+      <div id="map-container">
+        <svg id="map"></svg>
+      </div>
+    </div>
+    <script src="nandomap.js"></script>
+  </body>
+</html>
