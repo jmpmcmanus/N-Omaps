@@ -128,7 +128,7 @@ window.onhashchange = function() {
 };
 
 // Add municiple boundaries
-d3.json('muniboundaries.geojson', function (geojson) {
+d3.json('data/muniboundaries.geojson', function (geojson) {
   // let geojson = topojson.feature(topology, topology.objects.muniboundaries)
   muniboundaries
     .data(geojson.features)
@@ -138,7 +138,7 @@ d3.json('muniboundaries.geojson', function (geojson) {
     .attr('class', 'muniboundary')
 })
 // Add county boundaries
-d3.json('cntyboundaries.geojson', function (geojson) {
+d3.json('data/cntyboundaries.geojson', function (geojson) {
   // let geojson = topojson.feature(topology, topology.objects.cntyboundaries)
   cntyboundaries
     .data(geojson.features)
@@ -148,10 +148,10 @@ d3.json('cntyboundaries.geojson', function (geojson) {
     .attr('class', 'cntyboundary')
 })
 // Add Data
-d3.json("durhamtrts10.topojson", function(error, topo) {
+d3.json("data/durhamtrts10.topojson", function(error, topo) {
   topology = topo;
   geometries = topology.objects.durhamtrts10.geometries;
-  d3.csv("durham_ltdb_7017_trts_NandO.csv", function(error, data) {
+  d3.csv("data/durham_ltdb_7017_trts_NandO.csv", function(error, data) {
     dataById = d3.nest()
       .key(function(d) { return d.id; })
       .rollup(function(d) { return d[0]; })
@@ -161,7 +161,7 @@ d3.json("durhamtrts10.topojson", function(error, topo) {
 });
 // Add roads
 for (var i = 0; i < roadsurls.length; i++) {
-  d3.json(roadsurls[i], function (geojson) {
+  d3.json('data/' + roadsurls[i], function (geojson) {
     roads
       .data(geojson.features)
       .enter().append('path')
