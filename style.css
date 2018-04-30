@@ -79,13 +79,13 @@ path.durhamtr:hover {
 }
 .roads {
   fill: none;
-  stroke: white;
+  stroke: black;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
 .major_road {
   fill: none;
-  stroke: #fb7b7a;
+  stroke: black;
   stroke-width: 1px;
   stroke-linejoin: round;
   stroke-linecap: round;

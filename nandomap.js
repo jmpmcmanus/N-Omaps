@@ -17,30 +17,30 @@ var selectvar = (function() {
       return function(n) { return fmt(n) + "%"; };
     })(),
     fields = [
-      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800"},
-      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712"},
-      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517"},
-      {name: "Percent Change in College Graduates between 2000 and 2016", id: "pccol0016"},
-      {name: "Percent Change in White's between 2000 and 2016", id: "pcnhwht0016"},
-      {name: "Percent Change in Black's between 2000 and 2016", id: "pcnhblk0016"},
-      {name: "Percent Change in Asian's between 2000 and 2016", id: "pcasian0016"},
-      {name: "Percent Change in Hispanic's between 2000 and 2016", id: "pchisp0016"},
-      {name: "Change in Household Income between 2000 and 2016, Adjusted to 2017 Dollars", id: "chinc0016a17"},
-      {name: "Change in Household Income for White's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chincw0016a17"},
-      {name: "Change in Household Income for Black's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chincb0016a17"},
-      {name: "Change in Household Income for Asian's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chinca0016a17"},
-      {name: "Change in Household Income for Hispanic's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chinch0016a17"},
-      {name: "Change in Household Income between 2012 and 2016, Adjusted to 2017 Dollars", id: "chinc1216a17"},
-      {name: "Change in Household Income for White&apos;s between 2012 and 2016, Adjusted to 2017 Dollars", id: "chincw1216a17"},
-      {name: "Change in Household Income for Black's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chincb1216a17"},
-      {name: "Change in Household Income for Asian's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chinca1216a17"},
-      {name: "Change in Household Income for Hispanic's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chinch1216a17"},
-      {name: "Change in Median Home Value between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmhmval0016a17"},
-      {name: "Change in Median Rent between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmrent0016a17"},
-      {name: "Change in Mean Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmeansp0016a17"},
-      {name: "Change in Median Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmediansp0016a17"},
-      {name: "Change in Mean Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "cmeansp0916a17"},
-      {name: "Change in Median Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "cmediansp0916a17"}
+      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 13.1},
+      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13.1},
+      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13.1},
+      {name: "Percent Change in College Graduates between 2000 and 2016", id: "pccol0016", lo: -50, hi: 13.1},
+      {name: "Percent Change in White's between 2000 and 2016", id: "pcnhwht0016", lo: -31, hi: 41},
+      {name: "Percent Change in Black's between 2000 and 2016", id: "pcnhblk0016", lo: -31, hi: 41},
+      {name: "Percent Change in Asian's between 2000 and 2016", id: "pcasian0016", lo: -31, hi: 41},
+      {name: "Percent Change in Hispanic's between 2000 and 2016", id: "pchisp0016", lo: -31, hi: 41},
+      {name: "Change in Household Income between 2012 and 2016, Adjusted to 2017 Dollars", id: "chinc1216a17", lo: -16364.21, hi: 41646.95},
+      {name: "Change in Household Income for White's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chincw1216a17", lo: -43802.61, hi: 57125.38},
+      {name: "Change in Household Income for Black's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chincb1216a17", lo: -43802.61, hi: 57125.38},
+      {name: "Change in Household Income for Asian's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chinca1216a17", lo: -214098.11, hi: 124759.19},
+      {name: "Change in Household Income for Hispanic's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chinch1216a17", lo: -104987.24, hi: 120610.3},
+      {name: "Change in Household Income between 2000 and 2016, Adjusted to 2017 Dollars", id: "chinc0016a17", lo: -16364.21, hi: 41646.95},
+      {name: "Change in Household Income for White's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chincw0016a17", lo: -43802.61, hi: 58808.2},
+      {name: "Change in Household Income for Black's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chincb0016a17", lo: -43802.61, hi: 58808.2},
+      {name: "Change in Household Income for Asian's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chinca0016a17", lo: -214098.11, hi: 124759.19},
+      {name: "Change in Household Income for Hispanic's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chinch0016a17", lo: -104987.24, hi: 120610.3},
+      {name: "Change in Median Home Value between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmhmval0016a17", lo: -39228.32, hi: 137998.23},
+      {name: "Change in Median Rent between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmrent0016a17", lo: -194.24, hi: 768.69},
+      {name: "Change in Mean Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "cmeansp0916a17", lo: -20281.3, hi: 316522.23},
+      {name: "Change in Median Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "cmediansp0916a17", lo: -22503.98, hi: 233660.65},
+      {name: "Change in Mean Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmeansp0016a17", lo: -20281.3, hi: 316522.23},
+      {name: "Change in Median Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmediansp0016a17", lo: -22503.98, hi: 233660.65}
     ],
     fieldsById = d3.nest()
       .key(function(d) { return d.id; })
@@ -194,8 +194,8 @@ function init() {
          return !isNaN(n);
        })
        .sort(d3.ascending),
-         lo = values[0],
-         hi = values[values.length - 1];
+         lo = 1, // values[0],
+         hi = 13.1; // values[values.length - 1];
 
   var color = d3.scaleSequential(d3.interpolateRdYlGn)
     .domain([lo, hi])
@@ -216,7 +216,8 @@ function init() {
   var cbV = d3.colorbarV(color, 20, 200)
     .tickValues([lo, lo + tickspace, lo + (tickspace * 2), lo + (tickspace * 3), hi])
   colorbar.call(cbV)
-} 
+}
+
 
 function update() {
   var start = Date.now();
@@ -235,8 +236,8 @@ function update() {
 	  return !isNaN(n);
 	})
 	.sort(d3.ascending),
-      lo = values[0],
-      hi = values[values.length - 1];
+      lo = field.lo, // values[0],
+      hi = field.hi; // values[values.length - 1];
 
   var color = d3.scaleSequential(d3.interpolateRdYlGn)
     .domain([lo, hi])
