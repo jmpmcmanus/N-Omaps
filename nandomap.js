@@ -210,6 +210,7 @@ d3.json('data/durhamhds.geojson', function (geojson) {
             .attr('text-anchor', 'middle')
             .style('font-size', '3px')
             .style('stroke', '#000')
+            .style('stroke-width', '0.3px')
             .text(function (d) { return d.properties.name })
       }
     })
