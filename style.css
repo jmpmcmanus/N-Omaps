@@ -57,7 +57,6 @@ path.durhamtr {
     stroke: #666;
     stroke-width: 1.0;
 }
-
 path.durhamtr:hover {
     stroke: #000;
     fill: steelblue;
@@ -85,7 +84,7 @@ path.durhamtr:hover {
 }
 .major_road {
   fill: none;
-  stroke: black;
+  stroke: red;
   stroke-width: 1px;
   stroke-linejoin: round;
   stroke-linecap: round;
@@ -115,6 +114,15 @@ path.durhamtr:hover {
   fill: none;
   stroke: #fff;
   stroke-linejoin: round;
+}
+.durhamhds {
+  fill: none;
+  stroke: #74767a;
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
 }
 /* Tooltip CSS */
 .d3-tip {

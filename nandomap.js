@@ -17,14 +17,32 @@ var selectvar = (function() {
       return function(n) { return fmt(n) + "%"; };
     })(),
     fields = [
-      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 13.1},
-      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13.1},
-      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13.1},
-      {name: "Percent Change in College Graduates between 2000 and 2016", id: "pccol0016", lo: -50, hi: 13.1},
-      {name: "Percent Change in White's between 2000 and 2016", id: "pcnhwht0016", lo: -31, hi: 41},
-      {name: "Percent Change in Black's between 2000 and 2016", id: "pcnhblk0016", lo: -31, hi: 41},
-      {name: "Percent Change in Asian's between 2000 and 2016", id: "pcasian0016", lo: -31, hi: 41},
-      {name: "Percent Change in Hispanic's between 2000 and 2016", id: "pchisp0016", lo: -31, hi: 41},
+      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 13},
+      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13},
+      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13},
+      {name: "Percent Change in College Graduates between 2000 and 2016", id: "pccol0016", lo: -25, hi: 25},
+      {name: "Percent Change in White's between 2000 and 2016", id: "pcnhwht0016", lo: -25, hi: 25},
+      {name: "Percent Change in Black's between 2000 and 2016", id: "pcnhblk0016", lo: -25, hi: 25},
+      {name: "Percent Change in Asian's between 2000 and 2016", id: "pcasian0016", lo: -25, hi: 25},
+      {name: "Percent Change in Hispanic's between 2000 and 2016", id: "pchisp0016", lo: -25, hi: 25},
+      {name: "Percent Change in Median Home Value between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmhmval0016a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Median Rent between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmrent0016a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Median Home Value between 2012 and 2016, Adjusted to 2017 Dollars", id: "pcmhmval1216a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Median Rent between 2012 and 2016, Adjusted to 2017 Dollars", id: "pcmrent1216a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Mean Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "pcmeansp0917a17", lo: -100.0, hi: 100.0},
+      {name: "Percent Change in Median Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "pcmediansp0917a17", lo: -100.0, hi: 100.0},
+      {name: "Percent Change in Mean Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmeansp0017a17", lo: -100.0, hi: 100.0},
+      {name: "Percent Change in Median Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmediansp0017a17", lo: -100.0, hi: 100.0},
+      {name: "Percent Change in Household Income between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinc1216a17", lo: -35.0, hi:  35.0},
+      {name: "Percent Change in Household Income for White's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchincw1216a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Household Income for Black's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchincb1216a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Household Income for Asian's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinca1216a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Household Income for Hispanic's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinch1216a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Household Income between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinc0016a17", lo: -35.0, hi: 35.0},
+      {name: "Percent Change in Household Income for White's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchincw0016a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Household Income for Black's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchincb0016a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Household Income for Asian's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinca0016a17", lo: -50.0, hi: 50.0},
+      {name: "Percent Change in Household Income for Hispanic's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinch0016a17", lo: -50.0, hi: 50.0},
       {name: "Change in Household Income between 2012 and 2016, Adjusted to 2017 Dollars", id: "chinc1216a17", lo: -16364.21, hi: 41646.95},
       {name: "Change in Household Income for White's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chincw1216a17", lo: -43802.61, hi: 57125.38},
       {name: "Change in Household Income for Black's between 2012 and 2016, Adjusted to 2017 Dollars", id: "chincb1216a17", lo: -43802.61, hi: 57125.38},
@@ -37,18 +55,18 @@ var selectvar = (function() {
       {name: "Change in Household Income for Hispanic's between 2000 and 2016, Adjusted to 2017 Dollars", id: "chinch0016a17", lo: -104987.24, hi: 120610.3},
       {name: "Change in Median Home Value between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmhmval0016a17", lo: -39228.32, hi: 137998.23},
       {name: "Change in Median Rent between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmrent0016a17", lo: -194.24, hi: 768.69},
-      {name: "Change in Mean Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "cmeansp0916a17", lo: -20281.3, hi: 316522.23},
-      {name: "Change in Median Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "cmediansp0916a17", lo: -22503.98, hi: 233660.65},
-      {name: "Change in Mean Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmeansp0016a17", lo: -20281.3, hi: 316522.23},
-      {name: "Change in Median Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmediansp0016a17", lo: -22503.98, hi: 233660.65}
+      {name: "Change in Median Home Value between 2012 and 2016, Adjusted to 2017 Dollars", id: "cmhmval1216a17", lo: -39228.32, hi: 137998.23},
+      {name: "Change in Median Rent between 2012 and 2016, Adjusted to 2017 Dollars", id: "cmrent1216a17", lo: -194.24, hi: 768.69},
+      {name: "Change in Mean Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "cmeansp0917a17", lo: -20281.3, hi: 316522.23},
+      {name: "Change in Median Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "cmediansp0917a17", lo: -22503.98, hi: 233660.65},
+      {name: "Change in Mean Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmeansp0017a17", lo: -20281.3, hi: 316522.23},
+      {name: "Change in Median Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "cmediansp0017a17", lo: -22503.98, hi: 233660.65}
     ],
     fieldsById = d3.nest()
       .key(function(d) { return d.id; })
       .rollup(function(d) { return d[0]; })
       .map(fields),
-    field = fields[0],
-    colors = d3.schemeRdYlGn[3].reverse()
-      .map(function(rgb) { return d3.hsl(rgb); });
+    field = fields[0];
 
 var fieldSelect = d3.select("#field")
   .on("change", function(e) {
@@ -87,6 +105,9 @@ var svg = d3.select("#map"),
       .selectAll("path"),
     roads = layer.append('g')
       .attr('id', 'roads')
+      .selectAll('path'),
+    durhamhds = layer.append('g')
+      .attr('id', 'durhamhds')
       .selectAll('path'),
     colorbar = layer.append('g')
       .attr('class', 'vertical')
@@ -162,6 +183,40 @@ for (var i = 0; i < roadsurls.length; i++) {
       .attr('class', function (d) { return d.properties.kind })
   })
 } 
+// Add neighborhood boundaries
+d3.json('data/durhamhds.geojson', function (geojson) {
+  // var geojson = topojson.feature(topology, topology.objects.durhamhds)
+  durhamhds
+    .data(geojson.features)
+    .enter()
+    .append('path')
+    .attr('d', path)
+    .attr('class', 'durhamhds')
+    .attr('visibility', 'hidden')
+
+  durhamhds
+    .data(geojson.features)
+    .enter()
+    .append('text')
+    .attr('class', 'durhamhds')
+    .attr('visibility', 'hidden')
+    .each(function (d) {
+      if (parseFloat(d.properties.shape_area) < 0.00006) {
+        return
+      }
+      else {
+          d3.select(this)
+            .attr('transform', function (d) { return 'translate(' + path.centroid(d) + ')' })
+            .attr('text-anchor', 'middle')
+            .style('font-size', '3px')
+            .style('stroke', '#000')
+            .text(function (d) { return d.properties.name })
+      }
+    })
+    .filter(function (d) {
+      return parseFloat(d.properties.shape_area) < 0.00006
+    }).remove()
+})
 
 function init() {
   var features = carto.features(topology, geometries);
@@ -197,7 +252,7 @@ function init() {
          lo = 1, // values[0],
          hi = 13.1; // values[values.length - 1];
 
-  var color = d3.scaleSequential(d3.interpolateRdYlGn)
+  var colorScale = d3.scaleSequential(d3.interpolateRdYlGn)
     .domain([lo, hi])
 
   durhamtrts10.transition()
@@ -208,12 +263,12 @@ function init() {
         return 'transparent'
       }
       else {
-        return color(value(d))
+        return colorScale(value(d))
       }
     }) 
 
   var tickspace = (hi - lo) / 4
-  var cbV = d3.colorbarV(color, 20, 200)
+  var cbV = d3.colorbarV(colorScale, 20, 200)
     .tickValues([lo, lo + tickspace, lo + (tickspace * 2), lo + (tickspace * 3), hi])
   colorbar.call(cbV)
 }
@@ -239,7 +294,7 @@ function update() {
       lo = field.lo, // values[0],
       hi = field.hi; // values[values.length - 1];
 
-  var color = d3.scaleSequential(d3.interpolateRdYlGn)
+  var colorScale = d3.scaleSequential(d3.interpolateRdYlGn)
     .domain([lo, hi])
 
   durhamtrts10.transition()
@@ -250,7 +305,7 @@ function update() {
         return 'transparent'
       }
       else {
-        return color(value(d))
+        return colorScale(value(d))
       }
     });
 
@@ -259,7 +314,7 @@ function update() {
       .attr('class', 'vertical')
       .attr('transform', 'translate(100, 20)')
     var tickspace = (hi - lo) / 4
-    var cbV = d3.colorbarV(color, 20, 200)
+    var cbV = d3.colorbarV(colorScale, 20, 200)
         .tickValues([lo, lo + tickspace, lo + (tickspace * 2), lo + (tickspace * 3), hi])
     colorbar.call(cbV)
 }
@@ -308,7 +363,7 @@ function clicked(d) {
     k = 4
     centered = d
 
-    // d3.selectAll('.durhamhds').attr('visibility', 'visible')
+    d3.selectAll('.durhamhds').attr('visibility', 'visible')
   }
   else {
     x = width / 2
@@ -316,7 +371,7 @@ function clicked(d) {
     k = 1
     centered = null
 
-    // d3.selectAll('.durhamhds').attr('visibility', 'hidden')
+    d3.selectAll('.durhamhds').attr('visibility', 'hidden')
   }
 
   layer.selectAll('path')
