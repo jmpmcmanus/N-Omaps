@@ -21,6 +21,8 @@ var selectvar = (function() {
       {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13},
       {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13},
       {name: "Percent Change in College Graduates between 2000 and 2016", id: "pccol0016", lo: -25, hi: 25},
+      {name: "Percent Change in College Graduates between 2012 and 2016", id: "pccol1216", lo: -25, hi: 25},
+      {name: "Percent Change in College Graduates between 2000 and 2012", id: "pccol0012", lo: -25, hi: 25},
       {name: "Percent Change in White's between 2010 and 2016", id: "pcnhwht1016", lo: -25, hi: 25},
       {name: "Percent Change in Black's between 2010 and 2016", id: "pcnhblk1016", lo: -25, hi: 25},
       {name: "Percent Change in Asian's between 2010 and 2016", id: "pcasian1016", lo: -25, hi: 25},
