@@ -17,51 +17,51 @@ var selectvar = (function() {
       return function(n) { return fmt(n) + "%"; };
     })(),
     fields = [
-      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 13},
-      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13},
-      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13},
-      {name: "Percent Change in College Graduates between 2000 and 2016", id: "pccol0016", lo: -25, hi: 25},
-      {name: "Percent Change in College Graduates between 2012 and 2016", id: "pccol1216", lo: -25, hi: 25},
-      {name: "Percent Change in College Graduates between 2000 and 2012", id: "pccol0012", lo: -25, hi: 25},
-      {name: "Percent Change in White's between 2010 and 2016", id: "pcnhwht1016", lo: -25, hi: 25},
-      {name: "Percent Change in Black's between 2010 and 2016", id: "pcnhblk1016", lo: -25, hi: 25},
-      {name: "Percent Change in Asian's between 2010 and 2016", id: "pcasian1016", lo: -25, hi: 25},
-      {name: "Percent Change in Hispanic's between 2010 and 2016", id: "pchisp1016", lo: -25, hi: 25},
-      {name: "Percent Change in White's between 2000 and 2016", id: "pcnhwht0016", lo: -25, hi: 25},
-      {name: "Percent Change in Black's between 2000 and 2016", id: "pcnhblk0016", lo: -25, hi: 25},
-      {name: "Percent Change in Asian's between 2000 and 2016", id: "pcasian0016", lo: -25, hi: 25},
-      {name: "Percent Change in Hispanic's between 2000 and 2016", id: "pchisp0016", lo: -25, hi: 25},
-      {name: "Percent Change in White's between 2000 and 2010", id: "pcnhwht0010", lo: -25, hi: 25},
-      {name: "Percent Change in Black's between 2000 and 2010", id: "pcnhblk0010", lo: -25, hi: 25},
-      {name: "Percent Change in Asian's between 2000 and 2010", id: "pcasian0010", lo: -25, hi: 25},
-      {name: "Percent Change in Hispanic's between 2000 and 2010", id: "pchisp0010", lo: -25, hi: 25},
-      {name: "Percent Change in Median Home Value between 2012 and 2016, Adjusted to 2017 Dollars", id: "pcmhmval1216a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Median Rent between 2012 and 2016, Adjusted to 2017 Dollars", id: "pcmrent1216a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Median Home Value between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmhmval0016a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Median Rent between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmrent0016a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Median Home Value between 2000 and 2012, Adjusted to 2017 Dollars", id: "pcmhmval0012a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Median Rent between 2000 and 2012, Adjusted to 2017 Dollars", id: "pcmrent0012a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Mean Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "pcmeansp0917a17", lo: -100.0, hi: 100.0},
-      {name: "Percent Change in Median Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "pcmediansp0917a17", lo: -100.0, hi: 100.0},
-      {name: "Percent Change in Mean Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmeansp0017a17", lo: -100.0, hi: 100.0},
-      {name: "Percent Change in Median Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmediansp0017a17", lo: -100.0, hi: 100.0},
-      {name: "Percent Change in Mean Sale Price for Single Family Homes between 2000 and 2009, Adjusted to 2017 Dollars", id: "pcmeansp0009a17", lo: -100.0, hi: 100.0},
-      {name: "Percent Change in Median Sale Price for Single Family Homes between 2000 and 2009, Adjusted to 2017 Dollars", id: "pcmediansp0009a17", lo: -100.0, hi: 100.0},
-      {name: "Percent Change in Household Income between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinc1216a17", lo: -35.0, hi:  35.0},
-      {name: "Percent Change in Household Income for White's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchincw1216a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Black's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchincb1216a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Asian's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinca1216a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Hispanic's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinch1216a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinc0016a17", lo: -35.0, hi: 35.0},
-      {name: "Percent Change in Household Income for White's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchincw0016a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Black's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchincb0016a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Asian's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinca0016a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Hispanic's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinch0016a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchinc0012a17", lo: -35.0, hi: 35.0},
-      {name: "Percent Change in Household Income for White's between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchincw0012a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Black's between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchincb0012a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Asian's between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchinca0012a17", lo: -50.0, hi: 50.0},
-      {name: "Percent Change in Household Income for Hispanic's between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchinch0012a17", lo: -50.0, hi: 50.0}
+      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 13, unit: ''},
+      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13, unit: ''},
+      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13, unit: ''},
+      {name: "Percent Change in College Graduates between 2000 and 2016", id: "pccol0016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in College Graduates between 2012 and 2016", id: "pccol1216", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in College Graduates between 2000 and 2012", id: "pccol0012", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in White's between 2010 and 2016", id: "pcnhwht1016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Black's between 2010 and 2016", id: "pcnhblk1016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Asian's between 2010 and 2016", id: "pcasian1016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Hispanic's between 2010 and 2016", id: "pchisp1016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in White's between 2000 and 2016", id: "pcnhwht0016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Black's between 2000 and 2016", id: "pcnhblk0016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Asian's between 2000 and 2016", id: "pcasian0016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Hispanic's between 2000 and 2016", id: "pchisp0016", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in White's between 2000 and 2010", id: "pcnhwht0010", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Black's between 2000 and 2010", id: "pcnhblk0010", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Asian's between 2000 and 2010", id: "pcasian0010", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Hispanic's between 2000 and 2010", id: "pchisp0010", lo: -25, hi: 25, unit: '%'},
+      {name: "Percent Change in Median Home Value between 2012 and 2016, Adjusted to 2017 Dollars", id: "pcmhmval1216a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Median Rent between 2012 and 2016, Adjusted to 2017 Dollars", id: "pcmrent1216a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Median Home Value between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmhmval0016a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Median Rent between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmrent0016a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Median Home Value between 2000 and 2012, Adjusted to 2017 Dollars", id: "pcmhmval0012a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Median Rent between 2000 and 2012, Adjusted to 2017 Dollars", id: "pcmrent0012a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Mean Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "pcmeansp0917a17", lo: -100.0, hi: 100.0, unit: '%'},
+      {name: "Percent Change in Median Sale Price for Single Family Homes between 2009 and 2016, Adjusted to 2017 Dollars", id: "pcmediansp0917a17", lo: -100.0, hi: 100.0, unit: '%'},
+      {name: "Percent Change in Mean Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmeansp0017a17", lo: -100.0, hi: 100.0, unit: '%'},
+      {name: "Percent Change in Median Sale Price for Single Family Homes between 2000 and 2016, Adjusted to 2017 Dollars", id: "pcmediansp0017a17", lo: -100.0, hi: 100.0, unit: '%'},
+      {name: "Percent Change in Mean Sale Price for Single Family Homes between 2000 and 2009, Adjusted to 2017 Dollars", id: "pcmeansp0009a17", lo: -100.0, hi: 100.0, unit: '%'},
+      {name: "Percent Change in Median Sale Price for Single Family Homes between 2000 and 2009, Adjusted to 2017 Dollars", id: "pcmediansp0009a17", lo: -100.0, hi: 100.0, unit: '%'},
+      {name: "Percent Change in Household Income between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinc1216a17", lo: -35.0, hi:  35.0, unit: '%'},
+      {name: "Percent Change in Household Income for White's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchincw1216a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Black's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchincb1216a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Asian's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinca1216a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Hispanic's between 2012 and 2016, Adjusted to 2017 Dollars", id: "pchinch1216a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinc0016a17", lo: -35.0, hi: 35.0, unit: '%'},
+      {name: "Percent Change in Household Income for White's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchincw0016a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Black's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchincb0016a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Asian's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinca0016a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Hispanic's between 2000 and 2016, Adjusted to 2017 Dollars", id: "pchinch0016a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchinc0012a17", lo: -35.0, hi: 35.0, unit: '%'},
+      {name: "Percent Change in Household Income for White's between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchincw0012a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Black's between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchincb0012a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Asian's between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchinca0012a17", lo: -50.0, hi: 50.0, unit: '%'},
+      {name: "Percent Change in Household Income for Hispanic's between 2000 and 2012, Adjusted to 2017 Dollars", id: "pchinch0012a17", lo: -50.0, hi: 50.0, unit: '%'}
     ],
     fieldsById = d3.nest()
       .key(function(d) { return d.id; })
@@ -89,7 +89,8 @@ var tip = d3.tip()
             .attr('class', 'd3-tip')
             .offset([-10, 0])
             .html(function(d) {
-              return "<strong>Tract ID: </strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) +"</span>";
+              // return "<strong>Location: </strong><span class='details'>"+'   '+"<br></span>" + "<strong>Tract ID: </strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>";
+              return "<strong>Tract ID: </ strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>"; 
             })
 
 var svg = d3.select("#map"),
@@ -251,8 +252,8 @@ function init() {
          return !isNaN(n);
        })
        .sort(d3.ascending),
-         lo = 1, // values[0],
-         hi = 13.1; // values[values.length - 1];
+         lo = field.lo, // values[0],
+         hi = field.hi; // values[values.length - 1];
 
   var colorScale = d3.scaleSequential(d3.interpolateRdYlGn)
     .domain([lo, hi])
@@ -272,7 +273,7 @@ function init() {
   var tickspace = (hi - lo) / 4
   var cbV = d3.colorbarV(colorScale, 20, 200)
     .tickValues([lo, lo + tickspace, lo + (tickspace * 2), lo + (tickspace * 3), hi])
-  colorbar.call(cbV)
+  colorbar.call(cbV) 
 }
 
 
@@ -315,6 +316,7 @@ function update() {
     colorbar = layer.append('g')
       .attr('class', 'vertical')
       .attr('transform', 'translate(100, 20)')
+    colorbar.append("text").attr("x", 40).attr("y", 105).text(field.unit)
     var tickspace = (hi - lo) / 4
     var cbV = d3.colorbarV(colorScale, 20, 200)
         .tickValues([lo, lo + tickspace, lo + (tickspace * 2), lo + (tickspace * 3), hi])
