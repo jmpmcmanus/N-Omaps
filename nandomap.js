@@ -143,8 +143,8 @@ window.onhashchange = function() {
 };
 
 // Add municiple boundaries
-d3.json('data/muniboundaries.geojson', function (geojson) {
-  // let geojson = topojson.feature(topology, topology.objects.muniboundaries)
+d3.json('data/muniboundaries.topojson', function (topology) {
+  let geojson = topojson.feature(topology, topology.objects.muniboundaries)
   muniboundaries
     .data(geojson.features)
     .enter()
@@ -255,7 +255,7 @@ function init() {
          lo = field.lo, // values[0],
          hi = field.hi; // values[values.length - 1];
 
-  var colorScale = d3.scaleSequential(d3.interpolateRdYlGn)
+  var colorScale = d3.scaleSequential(d3.interpolatePuOr)
     .domain([lo, hi])
 
   durhamtrts10.transition()
@@ -297,7 +297,7 @@ function update() {
       lo = field.lo, // values[0],
       hi = field.hi; // values[values.length - 1];
 
-  var colorScale = d3.scaleSequential(d3.interpolateRdYlGn)
+  var colorScale = d3.scaleSequential(d3.interpolatePuOr)
     .domain([lo, hi])
 
   durhamtrts10.transition()
