@@ -17,9 +17,17 @@ var selectvar = (function() {
       return function(n) { return fmt(n) + "%"; };
     })(),
     fields = [
-      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 13, unit: ''},
-      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13, unit: ''},
-      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13, unit: ''},
+      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 13, unit: 'pir'},
+      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13, unit: 'pir'},
+      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13, unit: 'pir'},
+      {name: 'Gross Rent as Percent of Household Income in 2012', id: 'grprchi12', lo: -50.0, hi: 50.0, unit: '%'},
+      {name: 'Gross Rent as Percent of Household Income in 2016', id: 'grprchi16', lo: -50.0, hi: 50.0, unit: '%'},
+      {name: 'Morgage Monthly Owners Cost as a Percent of Household Income in 2012', id: 'mmocphi12', lo: -35.4, hi: 35.4, unit: '%'},
+      {name: 'Morgage Monthly Owners Cost as a Percent of Household Income with Morgage in 2012', id: 'mmocphiym12', lo: -36.4, hi: 36.4, unit: '%'},
+      {name: 'Morgage Monthly Owners Cost as a Percent of Household Income without Morgage in 2012', id: 'mmocphinm12', lo: -31.5, hi: 31.5, unit: '%'},
+      {name: 'Morgage Monthly Owners Cost as a Percent of Household Income in 2016', id: 'mmocphi16', lo: -35.8, hi: 35.8, unit: '%'},
+      {name: 'Morgage Monthly Owners Cost as a Percent of Household Income with Morgage in 2016', id: 'mmocphiym16', lo: -50.0, hi: 50.0, unit: '%'},
+      {name: 'Morgage Monthly Owners Cost as a Percent of Household Income without Morgage in 2016', id: 'mmocphinm16', lo: -31.1, hi: 31.1, unit: '%'},
       {name: "Percent Change in College Graduates between 2000 and 2016", id: "pccol0016", lo: -25, hi: 25, unit: '%'},
       {name: "Percent Change in College Graduates between 2012 and 2016", id: "pccol1216", lo: -25, hi: 25, unit: '%'},
       {name: "Percent Change in College Graduates between 2000 and 2012", id: "pccol0012", lo: -25, hi: 25, unit: '%'},
@@ -153,8 +161,8 @@ d3.json('data/muniboundaries.topojson', function (topology) {
     .attr('class', 'muniboundary')
 })
 // Add county boundaries
-d3.json('data/cntyboundaries.geojson', function (geojson) {
-  // let geojson = topojson.feature(topology, topology.objects.cntyboundaries)
+d3.json('data/cntyboundaries.topojson', function (topology) {
+  let geojson = topojson.feature(topology, topology.objects.cntyboundaries)
   cntyboundaries
     .data(geojson.features)
     .enter()
