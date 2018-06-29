@@ -17,9 +17,9 @@ var selectvar = (function() {
       return function(n) { return fmt(n) + "%"; };
     })(),
     fields = [
-      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 13, unit: 'pir'},
-      {name: "Price Income Ratio between 2007 and 2012", id: "pir0712", lo: 1, hi: 13, unit: 'pir'},
-      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 13, unit: 'pir'},
+      {name: "Price Income Ratio between 2015 and 2017", id: "pir1517", lo: 1, hi: 9, unit: 'pir'},
+      {name: "Price Income Ratio between 2008 and 2012", id: "pir0812", lo: 1, hi: 9, unit: 'pir'},
+      {name: "Price Income Ratio between 1998 and 2000", id: "pir9800", lo: 1, hi: 9, unit: 'pir'},
       {name: 'Gross Rent as Percent of Household Income in 2012', id: 'grprchi12', lo: -50.0, hi: 50.0, unit: '%'},
       {name: 'Gross Rent as Percent of Household Income in 2016', id: 'grprchi16', lo: -50.0, hi: 50.0, unit: '%'},
       {name: 'Morgage Monthly Owners Cost as a Percent of Household Income in 2012', id: 'mmocphi12', lo: -35.4, hi: 35.4, unit: '%'},
