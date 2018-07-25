@@ -10,7 +10,7 @@ var body = d3.select("body"),
 
 const width = 580
 const height = 580
-var centered
+var active = d3.select(null);
 
 var selectvar = (function() {
       var fmt = d3.format(".2f");
@@ -90,20 +90,9 @@ fieldSelect.selectAll("option")
     .attr("value", function(d) { return d.id; })
     .text(function(d) { return d.name; });
 
-var format = d3.format(",");
-
-// Set tooltips
-var tip = d3.tip()
-            .attr('class', 'd3-tip')
-            .offset([-10, 0])
-            .html(function(d) {
-              // return "<strong>Location: </strong><span class='details'>"+'   '+"<br></span>" + "<strong>Tract ID: </strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>";
-              return "<strong>Tract ID: </ strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>"; 
-            })
-
 var svg = d3.select("#map"),
     layer = svg.append("g")
-	  .attr("id", "layer"),
+      .attr("id", "layer"),
     muniboundaries = layer.append('g')
       .attr('id', 'muniboundaries')
       .selectAll('path'),
@@ -118,10 +107,12 @@ var svg = d3.select("#map"),
       .selectAll('path'),
     durhamhds = layer.append('g')
       .attr('id', 'durhamhds')
-      .selectAll('path'),
-    colorbar = layer.append('g')
+      .selectAll('path');
+
+var bar = d3.select("#bar"),
+    colorbar = bar.append("g")
       .attr('class', 'vertical')
-      .attr('transform', 'translate(100, 20)')
+      .attr('transform', 'translate(20, 10)')
 
 var translation = [-38, 32],
     scaling = 0.94;
@@ -142,12 +133,57 @@ var projection = d3.geoMercator().center([-78.7, 36.05]).scale(60000).precision(
 var path = d3.geoPath()
   .projection(projection)
 
-layer.call(tip);
+var zoom = d3.zoom()
+  .scaleExtent([1, 4])
+  .on("zoom", function() {
+    Neighborhood();
+    layer.attr("transform", d3.event.transform);
+  });
+svg.call(zoom); 
 
+var zoomin = d3.select("#zoomin"),
+    zoominmenu = zoomin.append("g")
+      .attr("id","zoomin")
+      .attr('transform', 'translate(0, 0)')
+      .text("+")
+      .on("click", function() {
+        zoom.scaleBy(svg
+          .transition()
+          .duration(750), 2);
+      }),
+    zoomout = d3.select("#zoomout"),
+    zoomoutmenu = zoomout.append("g")
+      .attr("id","zoomout")
+      .attr('transform', 'translate(0, 0)')
+      .text("-")
+      .on("click", function() {
+        zoom.scaleBy(svg
+          .transition()
+          .duration(750), 0.5);
+      });
+
+var format = d3.format(",");
+      
+// Set tooltips
+var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+          // return "<strong>Location: </strong><span class='details'>"+'   '+"<br></span>" + "<strong>Tract ID: </strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>";
+          return "<strong>Tract ID: </ strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>"; 
+    })
+layer.call(tip);
+      
 const roadsurls = ['roads.572-802.geojson', 'roads.573-802.geojson', 'roads.574-802.geojson', 'roads.575-802.geojson', 'roads.576-802.geojson', 'roads.577-802.geojson', 'roads.572-803.geojson', 'roads.573-803.geojson', 'roads.574-803.geojson', 'roads.575-803.geojson', 'roads.576-803.geojson', 'roads.577-803.geojson', 'roads.572-804.geojson', 'roads.573-804.geojson', 'roads.574-804.geojson', 'roads.575-804.geojson', 'roads.576-804.geojson', 'roads.577-804.geojson', 'roads.572-805.geojson', 'roads.573-805.geojson', 'roads.574-805.geojson', 'roads.575-805.geojson', 'roads.576-805.geojson', 'roads.577-805.geojson']
 
 window.onhashchange = function() {
   parseHash();
+};
+
+window.onload = function() {
+  if (location.hash.substr(1)) {
+    location.replace("");
+  }
 };
 
 // Add municiple boundaries
@@ -228,7 +264,7 @@ d3.json('data/durhamhds.geojson', function (geojson) {
       return parseFloat(d.properties.shape_area) < 0.00006
     }).remove()
 })
-
+// Initiate Map
 function init() {
   var features = carto.features(topology, geometries);
 
@@ -246,8 +282,7 @@ function init() {
       })
       .on('mouseout', function(d){
          tip.hide(d);
-      })
-      .on('click', clicked);
+      });
 
   durhamtrts10.append("title");
 
@@ -260,8 +295,8 @@ function init() {
          return !isNaN(n);
        })
        .sort(d3.ascending),
-         lo = field.lo, // values[0],
-         hi = field.hi; // values[values.length - 1];
+         lo = field.lo,
+         hi = field.hi;
 
   var colorScale = d3.scaleSequential(d3.interpolatePuOr)
     .domain([lo, hi])
@@ -278,13 +313,13 @@ function init() {
       }
     }) 
 
+  colorbar.append("text").attr("x", 50).attr("y", 105).text(field.unit)
   var tickspace = (hi - lo) / 4
   var cbV = d3.colorbarV(colorScale, 20, 200)
     .tickValues([lo, lo + tickspace, lo + (tickspace * 2), lo + (tickspace * 3), hi])
-  colorbar.call(cbV) 
+  colorbar.call(cbV)
 }
-
-
+// Update Map
 function update() {
   var start = Date.now();
   body.classed("updating", true);
@@ -302,8 +337,8 @@ function update() {
 	  return !isNaN(n);
 	})
 	.sort(d3.ascending),
-      lo = field.lo, // values[0],
-      hi = field.hi; // values[values.length - 1];
+      lo = field.lo,
+      hi = field.hi;
 
   var colorScale = d3.scaleSequential(d3.interpolatePuOr)
     .domain([lo, hi])
@@ -321,10 +356,10 @@ function update() {
     });
 
     colorbar.remove()
-    colorbar = layer.append('g')
+    colorbar = bar.append('g')
       .attr('class', 'vertical')
-      .attr('transform', 'translate(100, 20)')
-    colorbar.append("text").attr("x", 40).attr("y", 105).text(field.unit)
+      .attr('transform', 'translate(20, 10)')
+    colorbar.append("text").attr("x", 50).attr("y", 105).text(field.unit)
     var tickspace = (hi - lo) / 4
     var cbV = d3.colorbarV(colorScale, 20, 200)
         .tickValues([lo, lo + tickspace, lo + (tickspace * 2), lo + (tickspace * 3), hi])
@@ -362,35 +397,15 @@ function parseHash() {
   });
 }
 
-// Click to zoom
-function clicked(d) {
-  let x
-  let y
-  let k
-
-  if (d && centered !== d) {
-    let centroid = path.centroid(d)
-    x = centroid[0]
-    y = centroid[1]
-    k = 4
-    centered = d
-
-    d3.selectAll('.durhamhds').attr('visibility', 'visible')
-  }
-  else {
-    x = width / 2
-    y = height / 2
-    k = 1
-    centered = null
-
+function Neighborhood() {
+  var zoomlevel = d3.zoomTransform(svg.node()).k
+  if (zoomlevel === 1) {
     d3.selectAll('.durhamhds').attr('visibility', 'hidden')
   }
-
-  layer.selectAll('path')
-    .classed('active', centered && function (d) { return d === centered })
-
-  layer.transition()
-    .duration(750)
-    .attr('transform', 'translate(' + width / 2 + ',' + height / 1.75 + ')scale(' + k + ')translate(' + -x + ',' + -y + ')')
-    .style('stroke-width', 1.5 / k + 'px')
+  else if (zoomlevel === 2) {
+    d3.selectAll('.durhamhds').attr('visibility', 'hidden')
+  }
+  else if (zoomlevel === 4) {
+    d3.selectAll('.durhamhds').attr('visibility', 'visible')
+  }
 }
