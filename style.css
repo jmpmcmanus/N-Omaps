@@ -80,12 +80,12 @@ select {
 #bar {
   display: block;
   position: relative;
-  width: 100px;
+  width: 150px;
   height: 220px;
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 path.durhamtr {
     stroke: #666;
