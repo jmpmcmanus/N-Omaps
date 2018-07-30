@@ -83,7 +83,7 @@ var bar = d3.select("#bar"),
 var translation = [-38, 32],
     scaling = 0.94;
 
-var projection = d3.geoMercator().center([-78.7, 36.05]).scale(60000).precision(.1),
+var projection = d3.geoMercator().center([-78.8, 36.05]).scale(60000).precision(.1),
     topology,
     geometries,
     dataById = {},
