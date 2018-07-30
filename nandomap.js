@@ -136,8 +136,15 @@ var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-          // return "<strong>Location: </strong><span class='details'>"+'   '+"<br></span>" + "<strong>Tract ID: </strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>";
-          return "<strong>Tract ID: </ strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>"; 
+      if (field.unit === '$') {
+        // return "<strong>Location: </strong><span class='details'>"+'   '+"<br></span>" + "<strong>Tract ID: </strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + field.unit + format(d.properties[field.id]) + " " + "</span>";
+        return "<strong>Tract ID: </ strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + field.unit + format(d.properties[field.id]) + " " + "</span>";           
+      }
+      else {
+        // return "<strong>Location: </strong><span class='details'>"+'   '+"<br></span>" + "<strong>Tract ID: </strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>";
+        return "<strong>Tract ID: </ strong><span class='details'>" + d.id + "<br></span>" + "<strong>Data Value: </strong><span class='details'>" + format(d.properties[field.id]) + " " + field.unit + "</span>"; 
+                  
+      }
     })
 layer.call(tip);
       
